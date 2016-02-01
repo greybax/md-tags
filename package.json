@@ -1,0 +1,43 @@
+{
+  "name": "md-tags",
+  "version": "0.0.1",
+  "description": "NPM Package for getting tags for post and getting posts for specific tag from markdown syntax.",
+  "main": "tags.js",
+  "scripts": {
+    "coverage": "istanbul cover _mocha",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "test": "mocha",
+    "tdd": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greybax/md-tags.git"
+  },
+  "keywords": [
+    "markdown",
+    "md",
+    "tags",
+    "post",
+    "article",
+    "md-tags",
+    "keywords"
+  ],
+  "author": "Aleksandr Filatov <greybax@gmail.com> (https://alfilatov.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greybax/md-tags/issues"
+  },
+  "homepage": "https://github.com/greybax/md-tags#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.0.0",
+    "should": "^8.2.1"
+  },
+  "dependencies": {
+    "ramda": "^0.19.1",
+    "remark": "^3.2.2"
+  }
+}
