@@ -34,7 +34,7 @@ tags.list;    // ["nodejs", "markdown", "my-tag"]
 
 ### tagsForPost(post)
 
-Return object `{text:string, list: array}`.
+Return object `{text:String, list: Array}`.
 
 #### post
 
@@ -43,9 +43,9 @@ Type: `String`
 
 Markdown string.
 
-### postForTags(tag, posts)
+### postsForTag(tag, posts)
 
-Return `list: array`.
+Return `list: Array` array of posts in markdown syntax, which matches by tag.
 
 #### tag
 
