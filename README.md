@@ -77,9 +77,5 @@ MIT © [Aleksandr Filatov](https://alfilatov.com/)
 [depstat-url]: https://david-dm.org/greybax/md-tags
 [depstat-image]: https://david-dm.org/greybax/md-tags.svg?style=flat-square
 
-
-[get-md-title]: https://github.com/greybax/get-md-title
-[get-md-date]: https://github.com/greybax/get-md-date
-[get-md-desc]: https://github.com/greybax/get-md-desc
-[get-md-image]: https://github.com/greybax/get-md-image
-[get-md-content]: https://github.com/greybax/get-md-content
+[depstat-dev-url]: https://david-dm.org/greybax/md-tags
+[depstat-dev-image]: https://david-dm.org/greybax/md-tags/dev-status.svg
