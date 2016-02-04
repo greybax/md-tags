@@ -17,16 +17,50 @@
 ```js
 import mdTags from 'md-tags';
 
-const post = `
+const post1 = `
 # Title
 
 _January 30, 2016_
 
 #nodejs, #markdown, #my-tag`;
 
-const tags = mdTags(post);
+const post2 = `
+# Title
+
+_January 31, 2016_
+
+#nodejs, #just-tag`;
+
+const post3 = `
+# Title
+
+_February 30, 2016_
+
+#markdown, #my-tag`;
+
+let tags = mdTags().tagsForPost(post1);
 tags.text;    // nodejs, markdown, my-tag
 tags.list;    // ["nodejs", "markdown", "my-tag"]
+
+let posts = [];
+posts.push(post1,post2,post3);
+
+let postsMatchedByTag = mdTags().postsForTag('my-tag', posts);
+/*
+[
+    "# Title
+    
+    _January 30, 2016_
+    
+    #nodejs, #markdown, #my-tag"
+    ,
+    "# Title
+    
+    _February 30, 2016_
+    
+    #markdown, #my-tag"
+]
+*/
 
 ```
 
@@ -34,7 +68,7 @@ tags.list;    // ["nodejs", "markdown", "my-tag"]
 
 ### tagsForPost(post)
 
-Return object `{text:String, list: Array}`.
+Return object `{text: String, list: Array}`.
 
 #### post
 
@@ -78,4 +112,4 @@ MIT © [Aleksandr Filatov](https://alfilatov.com/)
 [depstat-image]: https://david-dm.org/greybax/md-tags.svg?style=flat-square
 
 [depstat-dev-url]: https://david-dm.org/greybax/md-tags
-[depstat-dev-image]: https://david-dm.org/greybax/md-tags/dev-status.svg
+[depstat-dev-image]: https://david-dm.org/greybax/md-tags/dev-status.svg?style=flat-square
