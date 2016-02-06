@@ -39,6 +39,7 @@ _February 30, 2016_
 #markdown, #my-tag`;
 
 let tags = mdTags().tagsForPost(post1);
+tags.md;      // #nodejs, #markdown, #my-tag
 tags.text;    // nodejs, markdown, my-tag
 tags.list;    // ["nodejs", "markdown", "my-tag"]
 
@@ -68,7 +69,7 @@ let postsMatchedByTag = mdTags().postsForTag('my-tag', posts);
 
 ### tagsForPost(post)
 
-Return object `{text: String, list: Array}`.
+Return object `{md: String, text: String, list: Array}`.
 
 #### post
 
