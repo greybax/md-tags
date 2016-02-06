@@ -40,22 +40,26 @@ describe('md-tags', function() {
         mdtags.postsForTag.should.be.a.Function;
     });
     describe('tagsForPost', function() {
-        it('should return empty string when parameters are empty', function () {
+        it('should return undefined when parameters are empty', function () {
             assert.equal(undefined, mdTags().tagsForPost());
             assert.equal(undefined, mdTags().tagsForPost(null));
             assert.equal(undefined, mdTags().tagsForPost(post_empty));
+        });
+        it('should return md', function () {
+            assert.equal("#nodejs, #markdown, #my-tag",mdTags().tagsForPost(post).md);
+            assert.equal("#nodejs, #markdown, #my-tag", mdTags().tagsForPost(`#nodejs, #markdown, #my-tag`).md);
         });
         it('should return text', function () {
             assert.equal("nodejs, markdown, my-tag",mdTags().tagsForPost(post).text);
             assert.equal("nodejs, markdown, my-tag", mdTags().tagsForPost(`#nodejs, #markdown, #my-tag`).text);
         });
-        it('should return list of tags', function () {
+        it('should return list', function () {
             assert.deepEqual(["nodejs", "markdown", "my-tag"],mdTags().tagsForPost(post).list);
             assert.deepEqual(["nodejs", "markdown", "my-tag"], mdTags().tagsForPost(`#nodejs, #markdown, #my-tag`).list);
         });
     });
     describe('postsForTag', function() {
-        it('should return empty string when parameters are empty', function () {
+        it('should return empty array when parameters are empty', function () {
             assert.deepEqual([], mdTags().postsForTag());
             assert.deepEqual([], mdTags().postsForTag(null));
             assert.deepEqual([], mdTags().postsForTag("", post_empty));

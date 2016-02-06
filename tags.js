@@ -27,7 +27,7 @@ module.exports = function mdTags() {
         if (!post || post.trim() === "")
             return;
 
-        let text = R.pipe(
+        let md = R.pipe(
             item => remark().parse(item),
             R.prop('children'),
             R.filter(R.propEq('type', 'paragraph')),
@@ -38,16 +38,17 @@ module.exports = function mdTags() {
             R.map(R.prop('value')),
             R.filter(item => /#[\w-]*,?[\s]*/gim.test(item)),
             R.head)(post);
-            
-        if (!text) {
-            return { text: '', list: [] }
+
+        if (!md) {
+            return { md: '', text: '', list: [] }
         }
         else {
             return {
-                text: text.replace(/#/g, ''),
+                md: md,
+                text: md.replace(/#/g, ''),
                 list: R.pipe(
                     R.split(/,?[\s]+/gim),
-                    R.map(R.tail))(text),
+                    R.map(R.tail))(md),
             }
         }
     }
