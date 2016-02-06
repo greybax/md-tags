@@ -24,7 +24,7 @@ module.exports = function mdTags() {
      * @return {object} {text:string, list: array}
      */
     function tagsForPost(post) {
-        if (!post)
+        if (!post || post.trim() === "")
             return;
 
         let text = R.pipe(
