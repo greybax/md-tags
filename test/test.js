@@ -45,6 +45,11 @@ describe('md-tags', function() {
             assert.equal(undefined, mdTags().tagsForPost(null));
             assert.equal(undefined, mdTags().tagsForPost(post_empty));
         });
+        it('should tag with spaces should be parsed properly', function () {
+            assert.equal("#meetup, #.net, #Mobile Development", mdTags().tagsForPost("#meetup, #.net, #Mobile Development").md);
+            assert.equal("meetup, .net, Mobile Development", mdTags().tagsForPost("#meetup, #.net, #Mobile Development").text);
+            assert.deepEqual(["meetup", ".net", "Mobile Development"], mdTags().tagsForPost("#meetup, #.net, #Mobile Development").list);
+        });
         it('should return md', function () {
             assert.equal("#nodejs, #markdown, #my-tag",mdTags().tagsForPost(post).md);
             assert.equal("#nodejs, #markdown, #my-tag", mdTags().tagsForPost(`#nodejs, #markdown, #my-tag`).md);

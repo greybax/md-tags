@@ -47,7 +47,7 @@ module.exports = function mdTags() {
                 md: md,
                 text: md.replace(/#/g, ''),
                 list: R.pipe(
-                    R.split(/,?[\s]+/gim),
+                    R.split(/,[\s]+/gim),
                     R.map(R.tail))(md),
             }
         }
