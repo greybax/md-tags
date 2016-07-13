@@ -28,9 +28,9 @@ const post_empty = `
 `;
 
 let posts = [];
-posts.push(post,post2,post3);
+posts.push(post, post2, post3);
 
-describe('md-tags', function() {
+describe('md-tags', function () {
     it('md-tags should be a function and have 2 public methods', function () {
         var mdtags = mdTags();
         mdtags.should.be.a.Function;
@@ -39,7 +39,7 @@ describe('md-tags', function() {
         mdtags.should.have.property('postsForTag');
         mdtags.postsForTag.should.be.a.Function;
     });
-    describe('tagsForPost', function() {
+    describe('tagsForPost', function () {
         it('should return undefined when parameters are empty', function () {
             assert.equal(undefined, mdTags().tagsForPost());
             assert.equal(undefined, mdTags().tagsForPost(null));
@@ -51,19 +51,22 @@ describe('md-tags', function() {
             assert.deepEqual(["meetup", ".net", "Mobile Development"], mdTags().tagsForPost("#meetup, #.net, #Mobile Development").list);
         });
         it('should return md', function () {
-            assert.equal("#nodejs, #markdown, #my-tag",mdTags().tagsForPost(post).md);
+            assert.equal("#nodejs, #markdown, #my-tag", mdTags().tagsForPost(post).md);
             assert.equal("#nodejs, #markdown, #my-tag", mdTags().tagsForPost(`#nodejs, #markdown, #my-tag`).md);
         });
         it('should return text', function () {
-            assert.equal("nodejs, markdown, my-tag",mdTags().tagsForPost(post).text);
+            assert.equal("nodejs, markdown, my-tag", mdTags().tagsForPost(post).text);
             assert.equal("nodejs, markdown, my-tag", mdTags().tagsForPost(`#nodejs, #markdown, #my-tag`).text);
         });
         it('should return list', function () {
-            assert.deepEqual(["nodejs", "markdown", "my-tag"],mdTags().tagsForPost(post).list);
+            assert.deepEqual(["nodejs", "markdown", "my-tag"], mdTags().tagsForPost(post).list);
             assert.deepEqual(["nodejs", "markdown", "my-tag"], mdTags().tagsForPost(`#nodejs, #markdown, #my-tag`).list);
         });
+        it('should return html', function () {
+            assert.equal('<div id="" class=""> nodejs, markdown, my-tag </div>', mdTags().tagsForPost(post).html);
+        });
     });
-    describe('postsForTag', function() {
+    describe('postsForTag', function () {
         it('should return empty array when parameters are empty', function () {
             assert.deepEqual([], mdTags().postsForTag());
             assert.deepEqual([], mdTags().postsForTag(null));
@@ -73,7 +76,7 @@ describe('md-tags', function() {
             mdTags().postsForTag("my-tag", posts).should.be.instanceof(Array).and.have.lengthOf(2);
         });
         it('should return empty list', function () {
-            mdTags().postsForTag("not-matched-tag", posts).should.be.instanceof(Array).and.have.lengthOf(0);        
+            mdTags().postsForTag("not-matched-tag", posts).should.be.instanceof(Array).and.have.lengthOf(0);
         });
     });
 });

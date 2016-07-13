@@ -1,6 +1,6 @@
 {
   "name": "md-tags",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "NPM Package for getting tags for post and getting posts for specific tag from markdown syntax.",
   "main": "tags.js",
   "scripts": {
