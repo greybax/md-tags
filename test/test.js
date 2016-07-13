@@ -9,14 +9,14 @@ const post = `
 
 _January 30, 2016_
 
-#nodejs, #markdown, #my-tag`;
+#nodejs, #markdown, #my-tag;`;
 
 const post2 = `
 # Title
 
 _January 31, 2016_
 
-#my-tag`;
+#my-tag;`;
 
 const post3 = `
 # Title

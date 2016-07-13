@@ -38,10 +38,11 @@ module.exports = function mdTags() {
         }
         else {
             return {
-                md: md,
-                text: md.replace(/#/g, ''),
-                html: wrapTagsInHtml("div", md.replace(/#/g, '')),
+                md: md.replace(/;/g, ''),
+                text: md.replace(/#|;/g, ''),
+                html: wrapTagsInHtml("div", md.replace(/#|;/g, '')),
                 list: R.pipe(
+                    R.replace(/;/g, ''),
                     R.split(/,[\s]+/gim),
                     R.map(R.tail))(md),
             }

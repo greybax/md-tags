@@ -22,21 +22,21 @@ const post1 = `
 
 _January 30, 2016_
 
-#nodejs, #markdown, #my-tag`;
+#nodejs, #markdown, #my-tag;`;
 
 const post2 = `
 # Title
 
 _January 31, 2016_
 
-#nodejs, #just-tag`;
+#nodejs, #just-tag;`;
 
 const post3 = `
 # Title
 
 _February 30, 2016_
 
-#markdown, #my-tag`;
+#markdown, #my-tag;`;
 
 let tags = mdTags().tagsForPost(post1);
 tags.md;      // #nodejs, #markdown, #my-tag
@@ -69,7 +69,7 @@ let postsMatchedByTag = mdTags().postsForTag('my-tag', posts);
 
 ### tagsForPost(post)
 
-Return object `{md: String, text: String, list: Array}`.
+Return object `{md: String, text: String, html: string, list: Array}`.
 
 #### post
 
