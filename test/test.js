@@ -51,8 +51,7 @@ describe('md-tags', function () {
             assert.deepEqual(["meetup", ".net", "Mobile Development"], mdTags().tagsForPost("#meetup, #.net, #Mobile Development").list);
         });
         it('should return md', function () {
-            assert.equal("#nodejs, #markdown, #my-tag", mdTags().tagsForPost(post).md);
-            assert.equal("#nodejs, #markdown, #my-tag", mdTags().tagsForPost(`#nodejs, #markdown, #my-tag`).md);
+            assert.equal("#nodejs, #markdown, #my-tag;", mdTags().tagsForPost(post).md);
         });
         it('should return text', function () {
             assert.equal("nodejs, markdown, my-tag", mdTags().tagsForPost(post).text);

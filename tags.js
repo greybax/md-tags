@@ -38,7 +38,7 @@ module.exports = function mdTags() {
         }
         else {
             return {
-                md: md.replace(/;/g, ''),
+                md: md,
                 text: md.replace(/#|;/g, ''),
                 html: wrapTagsInHtml("div", md.replace(/#|;/g, '')),
                 list: R.pipe(
