@@ -38,6 +38,6 @@
   },
   "dependencies": {
     "ramda": "^0.23.0",
-    "remark": "^6.0.0"
+    "remark": "^7.0.0"
   }
 }
