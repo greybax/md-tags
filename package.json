@@ -37,7 +37,7 @@
     "should": "13.2.3"
   },
   "dependencies": {
-    "ramda": "^0.26.0",
+    "ramda": "^0.27.0",
     "remark": "^11.0.0"
   }
 }
